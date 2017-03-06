@@ -13,11 +13,11 @@ def swapTurns():
     player.is_my_turn = not player.is_my_turn
     npc.is_my_turn = not npc.is_my_turn
 
-def has_buff_points(Attacker):
+def hasBuffPoints(Attacker):
     return Attacker.psyche_moves > 0
 
 def chooseCombatMove(Attacker):
-    if(has_buff_points(Attacker)):
+    if(hasBuffPoints(Attacker)):
         rand = random.randint(1, 2)
         if(rand == 1):
             Attacker.move = "Range"
@@ -63,7 +63,7 @@ else:
 while(i < 30):
     if(player.is_my_turn == True):
         print("It's ", player.name, "'s turn!")
-        if(has_buff_points(player) == False):
+        if(hasBuffPoints(player) == False):
             chooseCombatMove(player)
             if (player.move != "Psyche Up"):
                 doCombatMove(player)
@@ -72,11 +72,11 @@ while(i < 30):
             chooseCombatMove(player)
             doCombatMove(player)
             resolveBuff(player)
-            if(has_buff_points(player) == False):
+            if(hasBuffPoints(player) == False):
                 swapTurns()
     else:
         print("It's ", npc.name, "'s turn!")
-        if(has_buff_points(npc) == False):
+        if(hasBuffPoints(npc) == False):
             chooseCombatMove(npc)
             if (npc.move != "Psyche Up"):
                 doCombatMove(npc)
@@ -85,7 +85,7 @@ while(i < 30):
             chooseCombatMove(npc)
             doCombatMove(npc)
             resolveBuff(npc)
-            if(has_buff_points(npc) == False):
+            if(hasBuffPoints(npc) == False):
                 swapTurns()
 
     print("\n")
