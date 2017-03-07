@@ -8,7 +8,6 @@ class Entity:
 def setNextEntityTurn(ObjIndex):
     global entity_objects
     if(ObjIndex + 1 == len(entity_objects)):    # If last object in list
-
         entity_objects[ObjIndex].is_my_turn = False
         entity_objects[0].is_my_turn = True
     else:
